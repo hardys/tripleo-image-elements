@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eux
+
+# Services couldn't talk to mysql, disable selinux for now
+sed -i -e 's/=enforcing/=permissive/g' /etc/selinux/config
+
+# Install the RDO repo
+echo -e '[rdo]\nname=RDO\nbaseurl=https://repos.fedorapeople.org/repos/openstack/openstack-icehouse/epel-7/\nenabled=1\ngpgcheck=0' | sudo dd of=/etc/yum.repos.d/rdotmp.repo
+
+yum install -y --nogpg /opt/stack/files/puppet-release.rpm
+yum install -y --nogpg puppet augeas rabbitmq-server openstack-keystone keepalived haproxy mariadb-galera-server ntp

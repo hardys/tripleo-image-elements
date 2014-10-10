@@ -1,7 +1,11 @@
 #!/bin/bash
 set -eux
 
+echo -e '[rdo]\nname=RDO\nbaseurl=https://repos.fedorapeople.org/repos/openstack/openstack-icehouse/epel-7/\nenabled=1\ngpgcheck=0' > /etc/yum.repos.d/rdotmp.repo
+
 install-packages -m openvswitch openvswitch-switch_package
+
+rm -f /etc/yum.repos.d/rdotmp.repo
 
 if [ "$DIB_INIT_SYSTEM" == "systemd" ] ; then
     os-svc-enable -n openvswitch-switch
