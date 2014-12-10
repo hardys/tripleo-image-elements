@@ -2,5 +2,4 @@ config-tools git /opt/stack/config-tools http://goodsquishy.com/downloads/repos-
 jjb git /opt/jenkins-job-builder https://git.openstack.org/openstack-infra/jenkins-job-builder
 puppet-release file /opt/stack/files/puppet-release.rpm http://yum.puppetlabs.com/el/7/products/x86_64/puppetlabs-release-7-11.noarch.rpm
 jenkins-rpm file /opt/stack/files/jenkins.rpm http://pkg.jenkins-ci.org/redhat/jenkins-1.583-1.1.noarch.rpm 
-ruby-devel file /opt/stack/files/ruby-devel.rpm https://github.com/enovance/edeploy-roles/raw/master/files/ruby-devel-2.0.0.353-20.el7.x86_64.rpm
 heira-patch file /opt/stack/files/heira-backend.patch https://github.com/enovance/edeploy-roles/raw/master/files/backend.rb.patch
